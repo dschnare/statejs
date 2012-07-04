@@ -1,0 +1,4 @@
+node_modules
+test/js/*.js
+!test/js/game.js
+!test/js/mock-objects.js

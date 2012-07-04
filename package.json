@@ -1,0 +1,28 @@
+{
+	"name": "statejs",
+	"version": "1.0.0",
+	"description": "Statejs is an event-driven finite state machine implmentation for JavaScript.",
+	"keywords": ["javascript","state","machine","fsm","finite","event"],
+	"author": {
+		"name": "Darren Schnare",
+		"email": "schnare.d@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "http://github.com/dschnare/statejs.git"
+	},
+	"main": "main",
+	"interface": "interface.js",
+	"compilation_level": "ADVANCED_OPTIMIZATIONS",
+	"dependencies": {
+		"xport": "*"
+	},
+	"devDependencies": {
+		"4web": "*",
+		"jslint-core": "*"
+	},
+	"scripts": {
+		"build-test": "node scripts/build-test.js",
+		"lint": "node scripts/lint.js"
+	}
+}

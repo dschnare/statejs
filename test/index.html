@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simple Tetris Example</title>
+		<meta charset="utf-8" />
+		<style type="text/css">
+			/* SCREEN MANAGER */
+			#screen-manager {
+				width: 800px;
+				height: 600px;
+				overflow: hidden;
+				position: relative;
+				margin: 0 auto;
+				padding: 1px;
+			}
+
+			.screen, .modal {
+				height: 598px;
+				position: relative;
+				background-color: #ffffff;
+				padding: 1px;
+				position: relative;
+			}
+
+			.modal {
+				overflow: hidden;
+				position: absolute;
+				top: 1px;
+				left: 1px;
+				width: 798px;
+				background-color: #eaeaea;
+			}
+
+			.modal .screen {
+				width: 600px;
+				height: 400px;
+				margin: 0 auto;
+			}
+
+			.modal .screen .pane {
+				height: 398px;
+			}
+
+			.modal .screen .title {
+				font-size: 16px;
+				text-align: left;
+			}
+
+			.screen .title {
+				background-color: #000000;
+				color: #ffffff;
+				display: block;
+				padding-top: 3px;
+				padding-bottom: 3px;
+				padding-left: 10px;
+				height: 20px;
+			}
+
+			.screen .pane {
+				width: 100%;
+				display: table;
+				height: 578px;
+				overflow: hidden;
+				padding: 1px;
+				position: relative;
+			}
+
+			.screen .pane .content {
+				color: #000000;
+				display: table-cell;
+				vertical-align: middle;
+				font-size: 56px;
+				text-align: center;
+			}
+
+			.screen .pane .content ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			/* COMMON */
+			a {
+				color: #000000;
+				text-decoration: none;
+			}
+
+			a:hover {
+				color: #000000;
+				text-decoration: underline;
+			}
+
+			/* SPLASH SCREEN */
+			#splash .content {
+				font-weight: bold;
+			}
+
+			/* GAME SCREEN */
+			#game #score {
+				position: absolute;
+				top: 0px;
+				right: 20px;
+				font-weight: bold;
+				color: #e3890b;
+			}
+			#game #game-board {
+				width: 500px;
+				height: 350px;
+				border: thin solid black;
+				margin: 0 auto;
+			}
+
+			/* CREDITS SCREEN */
+			#credits .content {
+				font-size: 36px;
+			}
+		</style>
+		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="js/combined.min.js"></script>
+		<script type="text/javascript" src="js/mock-objects.js"></script>
+		<script type="text/javascript" src="js/game.js"></script>
+	</head>
+	<body>
+	</body>
+</html>
