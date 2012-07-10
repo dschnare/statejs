@@ -14,3 +14,12 @@ function State() {}
 State.prototype.name = "";
 State.prototype.onentry = function () {};
 State.prototype.onexit = function () {};
+
+function Transition() {}
+Transition.prototype.from = "";
+Transition.prototype.to = "";
+Transition.prototype.action = function () {};
+Transition.prototype.actions = [];
+Transition.prototype.trigger = "";
+Transition.prototype.triggers = [];
+Transition.prototype.guard = function () {};
