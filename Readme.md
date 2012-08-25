@@ -17,18 +17,7 @@ Or use as a dependency:
 		}
 	}
 
-If all you want is a minified version of this script and its dependencies so you can simply include it in your web page do the following:
-
-1. Install Node with NPM.
-2. Create an empty directory and run the following:
-
-		npm install git://github.com/dschnare/statejs.git
-		cd node_modules/statejs
-		npm install
-		npm run-script build-test
-
-3. Copy the source files you want from `node_modules/statejs/test/js`. The combined script files contain statejs and all its dependencies.
-4. Delete the directory you just created.
+If all you want is a unminified/minified version of this script and its dependencies go to the download section.
 
 
 # Support
