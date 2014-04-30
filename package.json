@@ -25,7 +25,8 @@
   },
   "devDependencies": {
     "jslint-core": "~2011.1.9",
-    "smoosh": "~0.4.1"
+    "smoosh": "~0.4.1",
+    "jasmine-core": "~2.0.0"
   },
   "scripts": {
     "build-test": "node scripts/build-test.js",

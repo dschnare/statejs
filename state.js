@@ -11,7 +11,7 @@
   'use strict';
 
   function module(constructorKit, propertyKit) {
-    var State, Transition, isArray, invoke, async;
+    var StateMachine, State, Transition, isArray, invoke, async;
 
     isArray = Array.isArray || function (o) {
       return ({}).toString.call(o) === '[object Array]';
@@ -151,7 +151,7 @@
         // addState(name)
         // addState({name[, onentry, onexit]})
         addState: function (state) {
-          if (!state || typeof state.name !== 'string') {
+          if (!state || (typeof state !== 'string' && typeof state.name !== 'string')) {
             throw new Error('State must have a name property.');
           }
 
@@ -164,7 +164,7 @@
         // addTransition({from, to, [guard, [action or actions], [trigger or triggers]]})
         addTransition: function (transition) {
           if (!transition || typeof transition.from !== 'function' || typeof transition.to !== 'function') {
-            throw new Error('Transition must at least have a "from" and "to" poperties.");
+            throw new Error('Transition must at least have a "from" and "to" poperties."');
           }
 
           this.transitions({key: key}).push(new Transition(transition));
@@ -206,7 +206,7 @@
     exports.StateMachine = module(require('constructor-kit'), require('property-kit'));
   } else if (typeof define === 'function' && define.amd) {
     define(['constructor-kit', 'property-kit'], module);
-  else {
+  } else {
     global.StateMachine = module(constructorKit, propertyKit);
   }
 }(this, this.constructorKit, this.propertyKit));
