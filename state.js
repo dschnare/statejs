@@ -32,10 +32,9 @@
     // async(fn)
     // async(fn, ...)
     async = (function () {
-      var callLater = typeof requestAnimationFrame === 'function' ? requestAnimationFrame : function (fn) { setTimeout(fn, 10); };
       return function (fn) {
         var args = [].slice.call(arguments, 1);
-        callLater(args.length === 0 ? fn : function () {
+        StateMachine.callLater(args.length === 0 ? fn : function () {
           fn.apply(undefined, args);
         });
       };
@@ -223,6 +222,8 @@
         }
       });
     }());
+
+    StateMachine.callLater = typeof requestAnimationFrame === 'function' ? function (fn) { requestAnimationFrame(fn); } : function (fn) { setTimeout(fn, 10); };
 
     return StateMachine;
   }

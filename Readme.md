@@ -48,6 +48,13 @@ Retrieves the name of the initial state.
 
 Retrieves the name of the current state. If this method is called with a state name then the state machine will attempt to explicitly transition to the specified state. This is more of a convenience method for changing states manually instead of relying on events to trigger transitions.
 
+**StateMachine.callLater()**
+
+    callLater(fn)
+
+Calls a function at a later time in the future. This can be set to a function that is in sync with your game engine's update loop. By default it's set to `requestAnimationFrame` or `setTimeout`.
+
+
 **StateMachine#addState()**
 
 	addState(name)
