@@ -86,7 +86,7 @@ $(function () {
   sm.addState({
     name: 'splash',
     onentry: function () {
-      screenManager.show('splash';
+      screenManager.show('splash');
     }
   });
 
