@@ -1,6 +1,6 @@
 {
   "name": "statejs",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Statejs is an event-driven finite state machine implmentation for JavaScript.",
   "keywords": [
     "javascript",
@@ -29,7 +29,6 @@
     "jasmine-core": "~2.0.0"
   },
   "scripts": {
-    "build-test": "node scripts/build-test.js",
     "lint": "node scripts/lint.js"
   }
 }

@@ -6,7 +6,7 @@
  * Repo: https://github.com/dschnare/statejs
  */
 
-/*globals 'setTimeout', 'requestAnimationFrame' */
+/*globals 'require', 'define', 'exports', 'setTimeout', 'requestAnimationFrame' */
 (function (global, constructorKit, propertyKit) {
   'use strict';
 
@@ -69,15 +69,30 @@
         },
         actions: function () {
           var transition = this.transition();
+
           if (transition) {
             if (isArray(transition.actions)) {
               return transition.actions;
-            }
-            if (typeof transition.action === 'function') {
+            } else if (typeof transition.action === 'function') {
               return [transition.action];
             }
           }
+
           return [];
+        },
+        hasTrigger: function (trigger) {
+          var triggers, i, len;
+          
+          triggers = this.triggers();
+          len = triggers.length;
+
+          for (i = 0; i < len; i += 1) {
+            if (triggers[i] === trigger) {
+              return true;
+            }
+          }
+
+          return false;
         },
         triggers: function () {
           var transition, triggers;
@@ -96,14 +111,18 @@
           return triggers;
         },
         guard: function (event) {
-          var transition = this.transition();
-          return !!invoke(transition, 'guard', event); 
+          var transition, guarded;
+          
+          transition = this.transition();
+          guarded = invoke(transition, 'guard', event);
+
+          return guarded === undefined || !!guarded;
         },
         invokeActions: function (event) {
           var actions, action, i, len, transition;
 
           actions = this.actions();
-          transtion = this.transition();
+          transition = this.transition();
           len = actions.length;
 
           for (i = 0; i < len; i += 1) {
@@ -128,7 +147,7 @@
             var states = this.states({key: key});
 
             if (newValue === null || newValue === undefined) {
-              throw new Error('Invalid state:' + value);
+              throw new Error('Invalid state:' + newValue);
             }
 
             newValue = newValue.toString();
@@ -137,7 +156,10 @@
               throw new Error('State does not exist:' + newValue);
             }
 
-            if (states[currentValue]) states[currentValue].onexit();
+            if (states[currentValue]) {
+              states[currentValue].onexit();
+            }
+
             states[newValue].onentry();
 
             return newValue;
@@ -145,9 +167,12 @@
         });
 
         initialState = this.addState(initialState || 'start');
-        this.initialState(initialState.name, {key: key});
+        this.initialState(initialState.name(), {key: key});
         this.state(initialState.name());
       }, {
+        hasState: function (state) {
+          return typeof this.states({key: key})[state] !== 'function';
+        },
         // addState(name)
         // addState({name[, onentry, onexit]})
         addState: function (state) {
@@ -159,18 +184,18 @@
             state = {name: state};
           }
 
-          return this.states({key: key})[state.name] = new State(state);
+          return (this.states({key: key})[state.name] = new State(state));
         },
         // addTransition({from, to, [guard, [action or actions], [trigger or triggers]]})
         addTransition: function (transition) {
-          if (!transition || typeof transition.from !== 'function' || typeof transition.to !== 'function') {
+          if (!transition || typeof transition.from !== 'string' || typeof transition.to !== 'string') {
             throw new Error('Transition must at least have a "from" and "to" poperties."');
           }
 
           this.transitions({key: key}).push(new Transition(transition));
         },
         trigger: function (event) {
-          var states, transitions, eventType, i, len, state, transition;
+          var states, transitions, eventType, i, len, state, toState, transition;
 
           if (!event || (typeof event  !== 'string' && !event.type)) {
             throw new Error('Event must either be a string or an object with a type property.');
