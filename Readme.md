@@ -1,6 +1,6 @@
 # Overview
 
-Statejs is an event-driven finite state machine implmentation for JavaScript.
+Statejs is an event-driven finite state machine implmentation for JavaScript based the article by Eric Dybsand in Best of Game Programming Gems.
 
 
 # Support
