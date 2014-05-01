@@ -3,6 +3,11 @@
 Statejs is an event-driven finite state machine implmentation for JavaScript.
 
 
+# Support
+
+Works in all JavaScript environments as either an AMD, Nodejs or global module.
+
+
 # Installation
 
     bower install statejs
