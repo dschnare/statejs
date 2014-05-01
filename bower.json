@@ -1,0 +1,31 @@
+{
+  "name": "statejs",
+  "version": "2.0.0",
+  "description": "Statejs is an event-driven finite state machine implmentation for JavaScript.",
+  "homepage": "https://github.com/dschnare/statejs",
+  "keywords": [
+    "javascript",
+    "state",
+    "machine",
+    "fsm",
+    "finite",
+    "event"
+  ],
+  "authors": [
+    "Darren Schnare <schnare.d@gmail.com>"
+  ],
+  "main": "state.js",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
