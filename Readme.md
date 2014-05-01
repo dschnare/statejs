@@ -31,7 +31,7 @@ If not loaded using a module framework then this module exports the following in
 	onentry - The action to be invoke asynchronously when the initial state is entered.
 	onexit - The action to be invoke asynchronously when the initial state is exited.
 
-Makes a new state machine with the specified initial state with optional entry and exit actions. All state actions will be invoked with thier `this` object set to a state object with the following properties: `{name, onentry, onexit}`.
+Makes a new state machine with the specified initial state with optional entry and exit actions. 
 
 ---
 
@@ -74,7 +74,7 @@ Adds a state to the state machine.
 
 Adds a state transition. The states involved in the transition should be added to the state machine either before or after the transition has been added.
 
-All transition actions are invoked with thier `this` object set to a transition object with the following properties: `{from, to, guard, action or actions, trigger or triggers}`. Each transition action is also passed the `event` argument as passed to `trigger()` that caused the transition to be invoked.
+Each transition action is also passed the `event` argument as passed to `trigger()` that caused the transition to be invoked.
 
 
 **StateMachine#trigger()**
