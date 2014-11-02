@@ -1,6 +1,6 @@
 {
   "name": "statejs",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "Statejs is an event-driven finite state machine implmentation for JavaScript.",
   "keywords": [
     "javascript",
@@ -20,15 +20,16 @@
   },
   "main": "state",
   "dependencies": {
-    "constructor-kit": "0.0.4",
-    "property-kit": "~0.1.1"
+    "constructor-kit": "^0.1.0",
+    "property-kit": "^1.0.0"
   },
   "devDependencies": {
-    "jslint-core": "~2011.1.9",
-    "smoosh": "~0.4.1",
-    "jasmine-core": "~2.0.0"
+    "gulp": "^3.8.9",
+    "gulp-browserify": "^0.5.0",
+    "gulp-jasmine": "^1.0.1"
   },
   "scripts": {
-    "lint": "node scripts/lint.js"
+    "test": "./node_modules/.bin/gulp",
+    "build-example": "./node_modules/.bin/gulp build-example"
   }
 }
