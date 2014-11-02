@@ -1,6 +1,6 @@
 {
   "name": "statejs",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Statejs is an event-driven finite state machine implmentation for JavaScript.",
   "homepage": "https://github.com/dschnare/statejs",
   "keywords": [
@@ -15,9 +15,11 @@
     "Darren Schnare <schnare.d@gmail.com>"
   ],
   "main": "state.js",
+  "dependencies": {
+    "constructor-kit": "^0.1.0",
+    "property-kit": "^1.0.0"
+  },
   "moduleType": [
-    "amd",
-    "globals",
     "node"
   ],
   "license": "MIT",

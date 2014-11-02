@@ -30,6 +30,8 @@
 // NOTES: Where
 // - {NAME} is the event type that will trigger the transition.
 // - (condition) is the guard condition used to determine if transition should be invoked.
+var StateMachine = require('../../state');
+var MOCK = require('./mock-objects');
 
 $(function () {
   var sm, level, score, levelCount, goal, linesCleared, options, loader, inputManager, screenManager;
@@ -48,11 +50,11 @@ $(function () {
   // The options the player has set for the game.
   options = {};
   // The asset loader.
-  loader = makeLoader();
+  loader = MOCK.makeLoader();
   // The input manager.
-  inputManager = makeInputManager(document);
+  inputManager = MOCK.makeInputManager(document);
   // The screen manager.
-  screenManager = makeScreenManager(document.body, inputManager);
+  screenManager = MOCK.makeScreenManager(document.body, inputManager);
 
   // Our screen manager takes care of displaying and rendering
   // our game screens. We set the clear colour (i.e. background) to

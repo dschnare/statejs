@@ -1,3 +1,5 @@
+var StateMachine = require('../state');
+
 describe('StateMachine', function () {
   it('should expose a StateMachine constructor', function () {
     expect(typeof StateMachine).toBe('function');

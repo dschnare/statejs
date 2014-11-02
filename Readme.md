@@ -16,10 +16,21 @@ Or
 
     npm install statejs
 
+## Bower
+
+To use the component you will have to bundle the component using a tool like [Browserify](http://browserify.org).
+For example:
+
+*./public/modules/app.js*:
+
+    var StateMachine = require('statejs')
+    console.log(typeof StateMachine)
+
+*command line*:
+
+    browserify -t debowerify ./public/modules/app.js > ./public/app.max.js
 
 # API
-
-If not loaded using a module framework then this module exports the following into the global scope. 
 
 **StateMachine()**
 

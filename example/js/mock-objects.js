@@ -1,4 +1,4 @@
-var MOCK = (function () {
+module.exports = (function () {
 	function makeEventDispatcher(target) {
 		var listeners = [],
 			getOrCreateBucket = function (eventType) {
@@ -503,13 +503,4 @@ var MOCK = (function () {
 		makeInputManager: makeInputManager,
 		makeScreenManager: makeScreenManager
 	};
-}());
-
-// Export the mock objects.
-(function () {
-	for (var key in MOCK) {
-		if (MOCK[key]) {
-			window[key] = MOCK[key];
-		}
-	}
 }());
